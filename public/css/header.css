@@ -1,0 +1,141 @@
+main{
+    padding: 20px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: #181818;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    
+}
+
+.icon-menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(10px);
+}
+
+.icon-menu i{
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+h1 {
+    margin-left: 15%;
+}
+
+.menu-side{
+    width: 80px;
+    height: 100%;
+    background: #181818;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid #181818;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.menu-side::-webkit-scrollbar{
+    display: none;
+}
+
+.menu-side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.name-page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name-page i{
+    width: 20px;
+    margin-right: 20px;
+}
+
+.options-menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options-menu a{
+    color: #ffffffb2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options-menu a:hover{
+    color: white;
+}
+
+.options-menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options-menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options-menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+.body-move{
+    margin-left: 250px;
+}
+
+.menu-side-move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+    .body-move{
+        margin-left: 0px;
+    }
+
+    .menu-side-move{
+        width: 80px;
+        left: -80px;
+    }
+}
