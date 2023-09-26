@@ -12,6 +12,7 @@ $type = 'home';
 
 ?>
 
+<?php include_once('../templates/php/info-job.php'); ?>
 <?php include_once('../templates/header.php'); ?>
 
 <main>
