@@ -17,6 +17,34 @@ $search_results = [];
 if (isset($_POST["search-query"])) {
     $search_query = $_POST["search-query"];
 
+    // Obtener el valor actual del campo 'searchs' del usuario
+    $user_id = $_SESSION["user_id"];
+    $get_searchs_query = "SELECT searchs FROM users WHERE id_user = :user_id";
+    $stmt_get_searchs = $pdo->prepare($get_searchs_query);
+    $stmt_get_searchs->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt_get_searchs->execute();
+    $current_searchs = $stmt_get_searchs->fetchColumn();
+
+    // Dividir las palabras clave actuales en un conjunto
+    $current_searchs_set = array_map('trim', explode(',', $current_searchs));
+    $current_searchs_set = array_unique($current_searchs_set);
+
+    // Verificar si la nueva palabra clave ya existe en el conjunto
+    if (!in_array($search_query, $current_searchs_set)) {
+        // Agregar la nueva palabra clave al conjunto
+        $current_searchs_set[] = $search_query;
+
+        // Reconstruir el campo 'searchs' con las palabras clave únicas
+        $new_searchs = implode(', ', $current_searchs_set);
+
+        // Actualizar el campo 'searchs' para el usuario actual
+        $update_search_query = "UPDATE users SET searchs = :searchs WHERE id_user = :user_id";
+        $stmt_update = $pdo->prepare($update_search_query);
+        $stmt_update->bindParam(':searchs', $new_searchs, PDO::PARAM_STR);
+        $stmt_update->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt_update->execute();
+    }
+
     // Preparar la consulta SQL con una declaración preparada
     $sql_search = "SELECT * FROM job_offers WHERE 
                     title LIKE :query OR 

@@ -6,7 +6,7 @@
         <div class="inner-card">
             <div class="front-card">
                 <div class="content-top">
-                    <img src="assets/uploads/img/jobs-img/<?php echo $job_offer['img']; ?>" alt="<?php echo $job_offer['title']; ?>">
+                    <img src="<?php echo $job_offer['img']; ?>" alt="<?php echo $job_offer['title']; ?>">
                     <h2 class="title"><?php echo $job_offer['title']; ?></h2>
                     <p class="company"><?php echo $job_offer['company']; ?></p>
                     <h3 class="subtitle-section">Fecha de Publicación y Expiración</h3>

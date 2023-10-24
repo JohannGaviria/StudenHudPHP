@@ -29,7 +29,7 @@ $type = 'home';
 
     <h3 class="title-section">Publicaciones de interés</h3>
     <div class="interest-posts container">
-        <?php foreach ($search_result as $job_offer): ?>
+        <?php foreach ($results as $job_offer): ?>
             <?php include "../templates/card-template.php"; ?>
         <?php endforeach; ?>
     </div>

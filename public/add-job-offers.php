@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Procesa la foto de perfil
     if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
-        $targetDirPhoto = "assets/uploads/img/jobs-img/"; // Ruta donde se guardarán las fotos
+        $targetDirPhoto = "img/"; // Ruta donde se guardarán las fotos
         $targetFilePhoto = basename($_FILES["photo"]["name"]);
         
         // Mueve la foto al directorio de destino
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     } else {
-        echo "Error al procesar la foto de perfil.";
+        echo "Error al procesar la foto.";
         exit;
     }
 

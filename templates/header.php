@@ -68,19 +68,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
                 </div>
             </a>
             
-            <a href="room_rentals.php" class="<?php if ($type == 'room_rentals'): ?> selected <?php endif; ?>">
-                <div class="option">
-                    <i class="fas fa-bed icon" title="Rent"></i>
-                    <h4>Arriendo de Habitaciones</h4>
-                </div>
-            </a>
             
-            <a href="profile.php" class="<?php if ($type == 'profile'): ?> selected <?php endif; ?>">
-                <div class="option">
-                    <i class="fas fa-user-circle icon" title="User"></i>
-                    <h4>Perfil de Usuario</h4>
-                </div>
-            </a>
             
             <a href="?logout=true">
                 <div class="option">
